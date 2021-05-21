@@ -1,13 +1,15 @@
 public class TestCasesInfo {
-
 public int Test_case_ID;
-public String Module;
 public String Process;
+public String Page_Reference;
 public String Function;
-//public String Activity_OR_UI;
-//public String Test_Case_desc;
-//public String Pre_Req;
-//public String Input_Data;
-//public String Expected_Outcome;
-
+public String Activity_Or_User_Interface;
+public String TEST_CASE_DESCRIPTION;
+public String PRE_REQUISITE;
+public String INPUT_DATA;
+public String EXPECTED_OUTCOME;
+public String INPUT_DATA1;
+public String ACTUAL_OUTCOME;
+public String STATUS;
+public String Module;
 }
