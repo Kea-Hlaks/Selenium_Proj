@@ -56,7 +56,7 @@ public class RetrieveSaveInfo {
                 {
                     TCI = new TestCasesInfo();
 
-                    TCI.Test_case_ID = Rs.getInt("TESTCASEID");
+                    TCI.Test_case_ID = Rs.getString("TESTCASEID");
                     TCI.Module = Rs.getString("MODULE");
                     TCI.Process = Rs.getString("PROCESS");
                     TCI.Function = Rs.getString("FUNCTION");
@@ -104,7 +104,7 @@ public class RetrieveSaveInfo {
                 {
                     TCI = new TestCasesInfo();
 
-                    TCI.Test_case_ID = Rs.getInt("TESTCASEID");
+                    TCI.Test_case_ID = Rs.getString("TESTCASEID");
                     TCI.Module = Rs.getString("MODULE");
                     TCI.Process = Rs.getString("PROCESS");
                     TCI.Function = Rs.getString("FUNCTION");
@@ -151,7 +151,7 @@ public class RetrieveSaveInfo {
                 {
                     TCI = new TestCasesInfo();
 
-                    TCI.Test_case_ID = Rs.getInt("TESTCASEID");
+                    TCI.Test_case_ID = Rs.getString("TEST_CASE_ID");
                     TCI.Process = Rs.getString("PROCESS");
                     TCI.Page_Reference = Rs.getString("PAGE_REFERENCE");
                     TCI.Function = Rs.getString("FUNCTION");

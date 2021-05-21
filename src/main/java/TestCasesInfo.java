@@ -1,5 +1,5 @@
 public class TestCasesInfo {
-public int Test_case_ID;
+public String Test_case_ID;
 public String Process;
 public String Page_Reference;
 public String Function;

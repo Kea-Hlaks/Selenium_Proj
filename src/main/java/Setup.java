@@ -1,11 +1,9 @@
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.sun.java.swing.plaf.windows.resources.windows_es;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.junit.Test;
-import org.omg.CORBA.Environment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +11,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
-import sun.security.mscapi.CPublicKey;
 
 import java.io.File;
 import java.io.IOException;
@@ -52,7 +49,7 @@ public class Setup {
     }
 }
 
-    public void AfterTest(int TestCaseId,String Process, String Function,LogStatus Status, WebDriver driver, String ErrorMessage, String AdditionalNotes) throws IOException {
+    public void AfterTest(String TestCaseId,String Process, String Function,LogStatus Status, WebDriver driver, String ErrorMessage, String AdditionalNotes) throws IOException {
         String TestDesc = null;
         String Path=null;
         try

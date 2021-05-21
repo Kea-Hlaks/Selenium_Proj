@@ -81,7 +81,7 @@ public class InformationManagement {
             ngWebDriver.waitForAngularRequestsToFinish();
 
             WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
-            System.out.println("Button found");
+
             SignInBtn.click();
             ngWebDriver.waitForAngularRequestsToFinish();
             WebElement Search = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img"));
