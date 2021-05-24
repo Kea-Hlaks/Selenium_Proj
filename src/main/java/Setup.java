@@ -49,7 +49,12 @@ public class Setup {
     }
 }
 
-    public void AfterTest(String TestCaseId,String Process, String Function,LogStatus Status, WebDriver driver, String ErrorMessage, String AdditionalNotes) throws IOException {
+    public void AfterTest(String TestCaseId,String Process,String Page_Reference, String Function,String Activity_Or_User_Interface,String TEST_CASE_DESCRIPTION,String PRE_REQUISITE,
+            String INPUT_DATA,
+          String EXPECTED_OUTCOME,
+            String INPUT_DATA1,
+            String ACTUAL_OUTCOME,
+           String STATUS, LogStatus Status, WebDriver driver, String ErrorMessage, String AdditionalNotes) throws IOException {
         String TestDesc = null;
         String Path=null;
         try
@@ -71,8 +76,21 @@ public class Setup {
             test.log(Status,TestDesc);
             test.log(Status,"Test Case ID : " + TestCaseId);
             test.log(Status,"Process : " + Process);
+            test.log(Status,"Page Reference : " + Page_Reference);
             test.log(Status,"Function : " + Function);
+            test.log(Status,"Activity/User Interface : " + Activity_Or_User_Interface);
+            test.log(Status,"Test Case Description : " + TEST_CASE_DESCRIPTION);
+            test.log(Status,"Pre-requisite : " + PRE_REQUISITE);
             test.log(Status, "See Screenshot Below :" +test.addScreenCapture(Path));
+
+            if(INPUT_DATA != null)
+            {
+                test.log(Status,"Input Data : " + INPUT_DATA1);
+            }
+            if(ACTUAL_OUTCOME != null)
+            {
+                test.log(Status,"OutCome : " + ACTUAL_OUTCOME);
+            }
 
             if (ErrorMessage != null)
             {

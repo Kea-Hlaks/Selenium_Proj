@@ -285,7 +285,8 @@ public class InformationManagement {
             ErrorMessage = "Incorrect data displayed under Township/Allotment , Expected data eg ('BEDFORDVIEW')";
         }catch (Exception Ex)
         {
-            throw Ex;
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = Ex.toString();
         }
 
     }
@@ -343,7 +344,6 @@ public class InformationManagement {
         }catch (Exception Ex){
             TestStatus = LogStatus.FAIL;
             ErrorMessage = Ex.toString();
-            throw Ex;
         }
     }
     public void DataProvisioning(WebDriver driver)
@@ -596,7 +596,8 @@ public class InformationManagement {
             CloseBtn.click();
         }catch (Exception Ex)
         {
-            throw Ex;
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = Ex.toString();
         }
 
     }
@@ -654,7 +655,8 @@ public class InformationManagement {
         }
         catch (Exception Ex)
         {
-            throw Ex;
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = Ex.toString();
         }
     }
 
@@ -748,7 +750,8 @@ public class InformationManagement {
 
         }catch (Exception Ex)
         {
-            throw Ex;
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = Ex.toString();
         }
     }
 
@@ -806,7 +809,8 @@ public class InformationManagement {
 
         }catch (Exception ex)
         {
-            throw ex;
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = ex.toString();
         }
     }
 
