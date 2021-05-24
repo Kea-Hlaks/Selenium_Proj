@@ -54,8 +54,21 @@ ArrayList RetrievedTestCases;
 
                 switch (TCI.Test_case_ID)
                 {
-                    case "CIS_NOTIFYMANAGER_043":
+                    case "CIS_NOTIFYMANAGER_043" :
                         IMAdd.CIS_NOTIFYMANAGER_043(driver);
+                        Set_.AfterTest(TCI.Test_case_ID,TCI.Process, TCI.Function,IMAdd.TestStatus,driver,IMAdd.ErrorMessage,IMAdd.AdditionalNotes);
+                        IM.ErrorMessage = null;
+                        IM.AdditionalNotes = null;
+                        break;
+                    case "CIS_NOTIFYMANAGER_044" :
+                        IMAdd.CIS_NOTIFYMANAGER_044(driver);
+                        Set_.AfterTest(TCI.Test_case_ID,TCI.Process, TCI.Function,IMAdd.TestStatus,driver,IMAdd.ErrorMessage,IMAdd.AdditionalNotes);
+                        IM.ErrorMessage = null;
+                        IM.AdditionalNotes = null;
+                        break;
+
+                    case "CIS_SEARCH_001" :
+                        IMAdd.CIS_SEARCH_001(driver);
                         Set_.AfterTest(TCI.Test_case_ID,TCI.Process, TCI.Function,IMAdd.TestStatus,driver,IMAdd.ErrorMessage,IMAdd.AdditionalNotes);
                         IM.ErrorMessage = null;
                         IM.AdditionalNotes = null;
