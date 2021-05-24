@@ -150,7 +150,6 @@ public class RetrieveSaveInfo {
                 while(Rs.next())
                 {
                     TCI = new TestCasesInfo();
-
                     TCI.Test_case_ID = Rs.getString("TEST_CASE_ID");
                     TCI.Process = Rs.getString("PROCESS");
                     TCI.Page_Reference = Rs.getString("PAGE_REFERENCE");
@@ -163,7 +162,6 @@ public class RetrieveSaveInfo {
                     TCI.INPUT_DATA1 = Rs.getString("INPUT_DATA1");
                     TCI.ACTUAL_OUTCOME = Rs.getString("ACTUAL_OUTCOME");
                     TCI.STATUS = Rs.getString("STATUS");
-
                     TestCasesBulk.add(TCI);
                 }
                 Connected = true;
