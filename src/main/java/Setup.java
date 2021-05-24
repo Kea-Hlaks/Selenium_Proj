@@ -18,6 +18,7 @@ import java.io.IOException;
 public class Setup {
     ExtentReports reports = new ExtentReports("Documents"+ "\\TestReports" +"\\CsgReport.html",true);
     ExtentTest test;
+    String Test= "Zero";
 @Test
     public WebDriver Start(){
     FirefoxDriver driver = null;
