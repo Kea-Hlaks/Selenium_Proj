@@ -72,8 +72,8 @@ public class Setup {
                     TestDesc = "Test Skipped";
                     break;
             }
-            Path = TakeScreenshot(driver,Function);
-            test = reports.startTest(Function);
+            Path = TakeScreenshot(driver,TestCaseId);
+            test = reports.startTest(TestCaseId);
             test.log(Status,TestDesc);
             test.log(Status,"Test Case ID : " + TestCaseId);
             test.log(Status,"Process : " + Process);
@@ -82,11 +82,13 @@ public class Setup {
             test.log(Status,"Activity/User Interface : " + Activity_Or_User_Interface);
             test.log(Status,"Test Case Description : " + TEST_CASE_DESCRIPTION);
             test.log(Status,"Pre-requisite : " + PRE_REQUISITE);
-            test.log(Status, "See Screenshot Below :" +test.addScreenCapture(Path));
-
             if(INPUT_DATA != null)
             {
-                test.log(Status,"Input Data : " + INPUT_DATA1);
+                test.log(Status,"Input Data : " + INPUT_DATA);
+            }
+            if(EXPECTED_OUTCOME != null)
+            {
+                test.log(Status,"Expected outcome : " + EXPECTED_OUTCOME);
             }
             if(ACTUAL_OUTCOME != null)
             {
@@ -102,8 +104,10 @@ public class Setup {
             {
                 test.log(Status,"Additional Notes : " + AdditionalNotes);
             }
+            test.log(Status, "See Screenshot Below :" +test.addScreenCapture(Path));
             ErrorMessage="";
             AdditionalNotes = "";
+            reports.endTest(test);
         }
         catch (Exception ex)
         {
@@ -143,7 +147,7 @@ public class Setup {
     public void Conclude(){
     try
     {
-        reports.endTest(test);
+
         reports.flush();
     }
     catch (Exception ex)

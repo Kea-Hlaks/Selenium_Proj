@@ -150,7 +150,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.clear();
             SGNumVal.sendKeys("26");
 
@@ -202,7 +202,7 @@ public class InfoManagementAddendum {
             SearchFilterVal = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span");
             SearchFilterVal.click();
 
-            WebElement SGNumVal = ExplicitWait(driver, "//*[@id=\"mat-input-6\"]");
+            WebElement SGNumVal = ExplicitWait(driver, "//*[@id=\"mat-input-7\"]");
             SGNumVal.sendKeys("1/1995");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -251,7 +251,7 @@ public class InfoManagementAddendum {
             SearchFilterVal = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span");
             SearchFilterVal.click();
 
-            WebElement SGNumVal = ExplicitWait(driver, "//*[@id=\"mat-input-6\"]");
+            WebElement SGNumVal = ExplicitWait(driver, "//*[@id=\"mat-input-7\"]");
             SGNumVal.sendKeys("1");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -273,6 +273,35 @@ public class InfoManagementAddendum {
     {
         try
         {
+            driver.navigate().refresh();
+            driver.get(ExtLink);
+
+            WebElement Search = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img"));
+            Search.click();
+            ngWebDriver.waitForAngularRequestsToFinish();
+
+            ProvinceDD = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[1]/form/mat-form-field/div/div[1]/div[3]");
+            ProvinceDD.click();
+            ProvinceVal = ExplicitWait(driver,"/html/body/div[3]/div/div/div/mat-option[3]/span");
+            ProvinceVal.click();
+
+            SearchByDD = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[2]/form/mat-form-field/div/div[1]/div[3]");
+            SearchByDD.click();
+            SearchByVal = ExplicitWait(driver,"/html/body/div[3]/div/div/div/mat-option[3]/span");
+            SearchByVal.click();
+
+            SearchFilterDD = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[3]/form/mat-form-field/div/div[1]/div[3]");
+            SearchFilterDD.click();
+            SearchFilterVal = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span");
+            SearchFilterVal.click();
+
+            WebElement SGNumVal = ExplicitWait(driver, "//*[@id=\"mat-input-7\"]");
+            SGNumVal.sendKeys("1");
+
+            WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
+            SearchBtn.click();
+
+            ngWebDriver.waitForAngularRequestsToFinish();
 
         }
         catch (Exception Ex)

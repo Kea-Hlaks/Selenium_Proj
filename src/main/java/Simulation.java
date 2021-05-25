@@ -75,8 +75,8 @@ ArrayList RetrievedTestCases;
                                 IMAdd.ErrorMessage,
                                 IMAdd.AdditionalNotes
                         );
-                        IM.ErrorMessage = null;
-                        IM.AdditionalNotes = null;
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
                         break;
                     case "CIS_NOTIFYMANAGER_044" :
                         IMAdd.CIS_NOTIFYMANAGER_044(driver);
@@ -98,8 +98,8 @@ ArrayList RetrievedTestCases;
                                 IMAdd.ErrorMessage,
                                 IMAdd.AdditionalNotes
                         );
-                        IM.ErrorMessage = null;
-                        IM.AdditionalNotes = null;
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
                         break;
 
                     case "CIS_SEARCH_001" :
@@ -122,8 +122,8 @@ ArrayList RetrievedTestCases;
                                 IMAdd.ErrorMessage,
                                 IMAdd.AdditionalNotes
                         );
-                        IM.ErrorMessage = null;
-                        IM.AdditionalNotes = null;
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
                         break;
 
                         case "CIS_SEARCH_002" :
@@ -146,8 +146,8 @@ ArrayList RetrievedTestCases;
                                 IMAdd.ErrorMessage,
                                 IMAdd.AdditionalNotes
                         );
-                        IM.ErrorMessage = null;
-                        IM.AdditionalNotes = null;
+                            IMAdd.ErrorMessage = null;
+                            IMAdd.AdditionalNotes = null;
                         break;
                 }
                 //Set_.AfterTest(TCI.Test_case_ID,TCI.Process, TCI.Function,UAM.TestStatus,driver);
@@ -272,7 +272,11 @@ ArrayList RetrievedTestCases;
             throw  ex;
         }
         finally {
-            driver.quit();
+            if (driver != null)
+            {
+                driver.quit();
+            }
+
         }
     }
 
