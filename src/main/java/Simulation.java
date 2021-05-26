@@ -101,6 +101,52 @@ ArrayList RetrievedTestCases;
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
                         break;
+                    case "CIS_NOTIFYMANAGER_047" :
+                        IMAdd.CIS_NOTIFYMANAGER_047(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
+                        break;
+                    case "CIS_NOTIFYMANAGER_048" :
+                        IMAdd.CIS_NOTIFYMANAGER_048(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
+                        break;
 
                     case "CIS_SEARCH_001" :
                         IMAdd.CIS_SEARCH_001(driver);
@@ -128,6 +174,54 @@ ArrayList RetrievedTestCases;
 
                         case "CIS_SEARCH_002" :
                         IMAdd.CIS_SEARCH_002(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                            IMAdd.ErrorMessage = null;
+                            IMAdd.AdditionalNotes = null;
+                        break;
+
+                        case "CIS_SEARCH_003" :
+                        IMAdd.CIS_SEARCH_003(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                            IMAdd.ErrorMessage = null;
+                            IMAdd.AdditionalNotes = null;
+                        break;
+
+                        case "CIS_SEARCH_004" :
+                        IMAdd.CIS_SEARCH_004(driver);
                         Set_.AfterTest(
                                 TCI.Test_case_ID,
                                 TCI.Process,
