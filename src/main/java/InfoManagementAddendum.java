@@ -6,6 +6,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.ProfilesIni;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -214,7 +217,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.clear();
             SGNumVal.sendKeys("26");
 
@@ -252,7 +255,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.clear();
             SGNumVal.sendKeys("26");
 
@@ -412,6 +415,15 @@ public class InfoManagementAddendum {
                 //opens browser
 
                 IntLink = prop.get("InternalLink2").toString();
+
+                ProfilesIni profileIni = new ProfilesIni();
+                FirefoxProfile profile = profileIni.getProfile("default");
+                profile.setPreference("security.mixed_content.block_active_content", false);
+                profile.setPreference("security.mixed_content.block_display_content", false);
+                FirefoxOptions options = new FirefoxOptions();
+                options.setProfile(profile);
+                driver = new FirefoxDriver(options);
+
                 ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
                 driver.get(IntLink);
                 ngWebDriver.waitForAngularRequestsToFinish();
@@ -489,7 +501,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.sendKeys("1/1908");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -536,9 +548,10 @@ public class InfoManagementAddendum {
 
 
             //opens browser
-            ExtLink = prop.get("InternalLink2").toString();
+
+            IntLink = prop.get("InternalLink2").toString();
             ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
+            driver.get(IntLink);
             ngWebDriver.waitForAngularRequestsToFinish();
             //log in as manager
             WebElement DepartmentAddress = driver.findElement(By.id("mat-input-0"));
@@ -640,7 +653,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.sendKeys("1/1908");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -687,9 +700,10 @@ public class InfoManagementAddendum {
 
 
             //opens browser
-            ExtLink = prop.get("InternalLink2").toString();
+
+            IntLink = prop.get("InternalLink2").toString();
             ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
+            driver.get(IntLink);
             ngWebDriver.waitForAngularRequestsToFinish();
             //log in as manager
             WebElement DepartmentAddress = driver.findElement(By.id("mat-input-0"));
@@ -773,7 +787,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.sendKeys("1/1908");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -820,9 +834,10 @@ public class InfoManagementAddendum {
 
 
             //opens browser
-            ExtLink = prop.get("InternalLink2").toString();
+
+            IntLink = prop.get("InternalLink2").toString();
             ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
+            driver.get(IntLink);
             ngWebDriver.waitForAngularRequestsToFinish();
             //log in as manager
             WebElement DepartmentAddress = driver.findElement(By.id("mat-input-0"));
