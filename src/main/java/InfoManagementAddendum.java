@@ -1,8 +1,8 @@
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.NgWebDriver;
 import com.relevantcodes.extentreports.LogStatus;
-import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,6 +19,7 @@ public class InfoManagementAddendum {
     LogStatus TestStatus;
     String ErrorMessage = null;
     public String ExtLink ;
+    public String IntLink ;
     private Properties prop;
     private NgWebDriver ngWebDriver;
     private WebElement ProvinceDD;
@@ -58,7 +59,6 @@ public class InfoManagementAddendum {
             return targetElement;
         }
     }
-
     public void CIS_NOTIFYMANAGER_043(WebDriver driver)
     {
         try
@@ -82,6 +82,8 @@ public class InfoManagementAddendum {
 
             SignInBtn.click();
             ngWebDriver.waitForAngularRequestsToFinish();
+
+            ExtLink = driver.getCurrentUrl();
 
             WebElement MenuSearchBtn = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img");
             MenuSearchBtn.click();
@@ -131,12 +133,12 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_NOTIFYMANAGER_044(WebDriver driver)
     {
         try
         {
-            ExtLink = prop.get("ExternalLink2").toString();
+            driver.navigate().refresh();
+            driver.get(ExtLink);
 
             ngWebDriver.waitForAngularRequestsToFinish();
 
@@ -159,7 +161,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.clear();
             SGNumVal.sendKeys("26");
 
@@ -181,7 +183,8 @@ public class InfoManagementAddendum {
         }
         catch (Exception Ex)
         {
-
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = Ex.toString();
         }
     }
     public void CIS_NOTIFYMANAGER_045(WebDriver driver)
@@ -223,7 +226,8 @@ public class InfoManagementAddendum {
             ErrorMessage = "Could not process";
         }
     }
-    public void CIS_NOTIFYMANAGER_046(WebDriver driver) {
+    public void CIS_NOTIFYMANAGER_046(WebDriver driver)
+    {
         try {
 
             driver.get(ExtLink);
@@ -265,25 +269,28 @@ public class InfoManagementAddendum {
             InputStream inputStream = new FileInputStream(configFile);
             prop = new Properties();
             prop.load(inputStream);
-
-         //opens browser
-            ExtLink = prop.get("ExternalLink2").toString();
-            ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
-            ngWebDriver.waitForAngularRequestsToFinish();
-        //logs the external user in
-            WebElement Username = driver.findElement(By.id("mat-input-0"));
-            WebElement Password = driver.findElement(By.id("mat-input-1"));
-            Username.sendKeys(prop.get("ExtUsername2").toString());
-            Password.sendKeys(prop.get("ExtPass2").toString());
-            ngWebDriver.waitForAngularRequestsToFinish();
-
-            WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
-
-            SignInBtn.click();
-            ngWebDriver.waitForAngularRequestsToFinish();
+//
+//         //opens browser
+//            ExtLink = prop.get("ExternalLink2").toString();
+//            ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
+//            driver.get(ExtLink);
+//            ngWebDriver.waitForAngularRequestsToFinish();
+//        //logs the external user in
+//            WebElement Username = driver.findElement(By.id("mat-input-0"));
+//            WebElement Password = driver.findElement(By.id("mat-input-1"));
+//            Username.sendKeys(prop.get("ExtUsername2").toString());
+//            Password.sendKeys(prop.get("ExtPass2").toString());
+//            ngWebDriver.waitForAngularRequestsToFinish();
+//
+//            WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
+//
+//            SignInBtn.click();
+//            ngWebDriver.waitForAngularRequestsToFinish();
 
         //Click the search btn on the nav bar
+            driver.navigate().refresh();
+            driver.get(ExtLink);
+
             WebElement MenuSearchBtn = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img");
             MenuSearchBtn.click();
 
@@ -304,7 +311,7 @@ public class InfoManagementAddendum {
             SearchFilterVal.click();
 
             WebElement SGNumVal = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[3]/span/mat-form-field/div/div[1]/div[3]");
-            SGNumVal = SGNumVal.findElement(By.id("mat-input-6"));
+            SGNumVal = SGNumVal.findElement(By.id("mat-input-7"));
             SGNumVal.sendKeys("1/1908");
 
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
@@ -316,7 +323,11 @@ public class InfoManagementAddendum {
             CertificateCHK= ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-details/div[1]/mat-card/mat-card-content/div/div[2]/div[2]/div/div/span[3]/mat-checkbox/label");
             CertificateCHK.click();
 
-           CertificateType= ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-details/div[1]/mat-card/mat-card-content/div/div[2]/div[3]/div[2]/div[1]/mat-form-field/div/div[1]/div[3]");
+            CertificateType= ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-details/div[1]/mat-card/mat-card-content/div/div[2]/div[3]/div[2]/div[1]/mat-form-field/div/div[1]/div[3]");
+
+            JavascriptExecutor JE = (JavascriptExecutor)driver;
+            JE.executeScript("arguments[0].scrollIntoView();",CertificateType);
+
             CertificateType.click();
             CertificateTypeVal = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/div/div/mat-option[1]/span");
             CertificateTypeVal.click();
@@ -341,20 +352,18 @@ public class InfoManagementAddendum {
 
             WebElement FinishCheckOuTBtn = driver.findElement(By.xpath(" /html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-delivery-page/div/mat-card/mat-card-content/div[4]/mat-card/mat-card-content/div[4]/button\n"));
             FinishCheckOuTBtn.click();
-            WebElement ReqNu_ = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container/app-confirm-common-dailog/div/div/div[5]/div/p")
-;
+            WebElement ReqNu_ = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container/app-confirm-common-dailog/div/div/div[5]/div/p");
             ReqNum = ReqNu_.getText();
             WebElement ManagerNotification = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container");
 
             WebElement CloseBtn = driver.findElement(By.xpath(" /html/body/div[3]/div[2]/div/mat-dialog-container/app-confirm-common-dailog/div/div/div[6]/button"));
 
             CloseBtn.click();
-
-
             //opens browser
-            ExtLink = prop.get("InternalLink2").toString();
+
+            IntLink = prop.get("InternalLink2").toString();
             ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
+            driver.get(IntLink);
             ngWebDriver.waitForAngularRequestsToFinish();
             //log in as manager
             WebElement DepartmentAddress = driver.findElement(By.id("mat-input-0"));
@@ -401,14 +410,15 @@ public class InfoManagementAddendum {
                 CloseDecisionBtn.click();
 
                 //opens browser
-                ExtLink = prop.get("InternalLink2").toString();
+
+                IntLink = prop.get("InternalLink2").toString();
                 ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-                driver.get(ExtLink);
+                driver.get(IntLink);
                 ngWebDriver.waitForAngularRequestsToFinish();
-                //log in as manager
+                //log in as Officer
                 WebElement DAddress = driver.findElement(By.id("mat-input-0"));
                 WebElement DPass= driver.findElement(By.id("mat-input-1"));
-                DAddress.sendKeys(prop.get("Officer").toString());
+                DAddress.sendKeys(prop.get("OfficerUser").toString());
                 DPass.sendKeys(prop.get("OfficerPass").toString());
                 ngWebDriver.waitForAngularRequestsToFinish();
 
@@ -437,25 +447,25 @@ public class InfoManagementAddendum {
     public void CIS_NOTIFYMANAGER_048(WebDriver driver)
     {
         try {
-            InputStream inputStream = new FileInputStream(configFile);
-            prop = new Properties();
-            prop.load(inputStream);
-
-            //opens browser
-            ExtLink = prop.get("ExternalLink2").toString();
-            ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
-            driver.get(ExtLink);
-            ngWebDriver.waitForAngularRequestsToFinish();
-            //logs the external user in
-            WebElement Username = driver.findElement(By.id("mat-input-0"));
-            WebElement Password = driver.findElement(By.id("mat-input-1"));
-            Username.sendKeys(prop.get("ExtUsername2").toString());
-            Password.sendKeys(prop.get("ExtPass2").toString());
-            ngWebDriver.waitForAngularRequestsToFinish();
-
-            WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
-
-            SignInBtn.click();
+//            InputStream inputStream = new FileInputStream(configFile);
+//            prop = new Properties();
+//            prop.load(inputStream);
+//
+//            //opens browser
+//            ExtLink = prop.get("ExternalLink2").toString();
+//            ngWebDriver = new NgWebDriver(((FirefoxDriver) driver));
+//            driver.get(ExtLink);
+//            ngWebDriver.waitForAngularRequestsToFinish();
+//            //logs the external user in
+//            WebElement Username = driver.findElement(By.id("mat-input-0"));
+//            WebElement Password = driver.findElement(By.id("mat-input-1"));
+//            Username.sendKeys(prop.get("ExtUsername2").toString());
+//            Password.sendKeys(prop.get("ExtPass2").toString());
+//            ngWebDriver.waitForAngularRequestsToFinish();
+//
+//            WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
+//
+//            SignInBtn.click();
             ngWebDriver.waitForAngularRequestsToFinish();
 
             //Click the search btn on the nav bar
@@ -717,7 +727,6 @@ public class InfoManagementAddendum {
 
         }
     }
-
     public void CIS_NOTIFYMANAGER_050(WebDriver driver)
     {
         try
@@ -883,10 +892,6 @@ public class InfoManagementAddendum {
 
         }
     }
-
-
-
-
     public void CIS_SEARCH_001(WebDriver driver)
     {
         try
@@ -935,7 +940,6 @@ public class InfoManagementAddendum {
             TestStatus = LogStatus.FAIL;
         }
     }
-    
     public  void CIS_SEARCH_002(WebDriver driver)
     {
         try
@@ -948,7 +952,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_003(WebDriver driver)
     {
         try
@@ -961,7 +964,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_004(WebDriver driver)
     {
         try
@@ -974,7 +976,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_005(WebDriver driver)
     {
         try
@@ -987,7 +988,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_006(WebDriver driver)
     {
         try
@@ -1000,7 +1000,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_007(WebDriver driver)
     {
         try
@@ -1013,7 +1012,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_008(WebDriver driver)
     {
         try
@@ -1026,7 +1024,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_009(WebDriver driver)
     {
         try
@@ -1039,7 +1036,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_010(WebDriver driver)
     {
         try
@@ -1052,7 +1048,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_011(WebDriver driver)
     {
         try
@@ -1065,7 +1060,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_012(WebDriver driver)
     {
         try
@@ -1078,7 +1072,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_013(WebDriver driver)
     {
         try
@@ -1091,7 +1084,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_014(WebDriver driver)
     {
         try
@@ -1104,7 +1096,6 @@ public class InfoManagementAddendum {
             ErrorMessage = Ex.toString();
         }
     }
-
     public void CIS_SEARCH_015(WebDriver driver)
     {
         try
