@@ -195,7 +195,8 @@ public class InfoManagementAddendum {
         try
         {
 
-            driver.get(ExtLink);
+            ExtLink = prop.get("ExternalLink2").toString();
+
             ngWebDriver.waitForAngularRequestsToFinish();
 
             WebElement MenuSearchBtn = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img");
@@ -233,10 +234,11 @@ public class InfoManagementAddendum {
     {
         try {
 
-            driver.get(ExtLink);
+            ExtLink = prop.get("ExternalLink2").toString();
+
             ngWebDriver.waitForAngularRequestsToFinish();
 
-            WebElement MenuSearchBtn = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img");
+            WebElement MenuSearchBtn = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img");
             MenuSearchBtn.click();
 
             ProvinceDD = ExplicitWait(driver, "/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[1]/form/mat-form-field/div/div[1]/div[3]");

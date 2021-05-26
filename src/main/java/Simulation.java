@@ -101,6 +101,53 @@ ArrayList RetrievedTestCases;
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
                         break;
+                    case "CIS_NOTIFYMANAGER_045" :
+                        IMAdd.CIS_NOTIFYMANAGER_045(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
+                        break;
+                    case "CIS_NOTIFYMANAGER_046" :
+                        IMAdd.CIS_NOTIFYMANAGER_046(driver);
+                        Set_.AfterTest(
+                                TCI.Test_case_ID,
+                                TCI.Process,
+                                TCI.Page_Reference,
+                                TCI.Function,
+                                TCI.Activity_Or_User_Interface,
+                                TCI.TEST_CASE_DESCRIPTION,
+                                TCI.PRE_REQUISITE,
+                                TCI.INPUT_DATA,
+                                TCI.EXPECTED_OUTCOME,
+                                TCI.INPUT_DATA1,
+                                TCI.ACTUAL_OUTCOME,
+                                TCI.STATUS,
+                                IMAdd.TestStatus,
+                                driver,
+                                IMAdd.ErrorMessage,
+                                IMAdd.AdditionalNotes
+                        );
+                        IMAdd.ErrorMessage = null;
+                        IMAdd.AdditionalNotes = null;
+                        break;
+
                     case "CIS_NOTIFYMANAGER_047" :
                         IMAdd.CIS_NOTIFYMANAGER_047(driver);
                         Set_.AfterTest(
@@ -124,8 +171,8 @@ ArrayList RetrievedTestCases;
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
                         break;
-                    case "CIS_NOTIFYMANAGER_048" :
-                        IMAdd.CIS_NOTIFYMANAGER_048(driver);
+                    case "CIS_NOTIFYMANAGER_049" :
+                        IMAdd.CIS_NOTIFYMANAGER_049(driver);
                         Set_.AfterTest(
                                 TCI.Test_case_ID,
                                 TCI.Process,
