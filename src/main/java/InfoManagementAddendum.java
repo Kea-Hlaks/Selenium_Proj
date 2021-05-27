@@ -511,6 +511,8 @@ public class InfoManagementAddendum {
 
            WebElement SignInBtn = driver.findElement(ByAngular.buttonText("Sign In"));
 
+
+
            SignInBtn.click();
 
             ngWebDriver.waitForAngularRequestsToFinish();
