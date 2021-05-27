@@ -301,6 +301,22 @@ public class InfoManagementAddendum {
             WebElement SearchBtn = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[5]/span[1]/button"));
             SearchBtn.click();
 
+            WebElement YesBtn = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container/app-search-request-modal/div[2]/div/div[3]/div/button[1]");
+            YesBtn.click();
+
+            WebElement CommentTxt = ExplicitWait(driver,"//*[@id=\"mat-input-9\"]");
+            CommentTxt.sendKeys("CIS_SEARCH_003");
+
+            WebElement SubmitBtn = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container/app-search-request-modal/div[2]/div/div[3]/div[3]/button[1]");
+            SubmitBtn.click();
+
+            WebElement Closebtn = ExplicitWait(driver,"/html/body/div[3]/div[2]/div/mat-dialog-container/app-search-request-modal/div[2]/div/div/div[6]/div/button");
+            Closebtn.click();
+
+            TestStatus = LogStatus.FAIL;
+            ErrorMessage = "Feature not yet complete , the Manager does not receive any communication Email";
+
+
             ngWebDriver.waitForAngularRequestsToFinish();
 
         }
@@ -315,7 +331,23 @@ public class InfoManagementAddendum {
     {
         try
         {
+            driver.navigate().refresh();
+            driver.get(ExtLink);
 
+            WebElement Search = driver.findElement(By.xpath("/html/body/app-root/app-full-layout/div/mat-toolbar/div[2]/a/img"));
+            Search.click();
+            ngWebDriver.waitForAngularRequestsToFinish();
+
+
+            ProvinceDD = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[1]/form/mat-form-field/div/div[1]/div[3]");
+            ProvinceDD.click();
+            ProvinceVal = ExplicitWait(driver,"/html/body/div[3]/div/div/div/mat-option[2]/span");
+            ProvinceVal.click();
+
+            SearchByDD = ExplicitWait(driver,"/html/body/app-root/app-full-layout/div/mat-sidenav-container/mat-sidenav-content/div/app-search-page/div/div/div[1]/div/div/mat-card/mat-card-content/div[2]/span[2]/form/mat-form-field/div/div[1]/div[3]");
+            SearchByDD.click();
+            SearchByVal = ExplicitWait(driver,"/html/body/div[3]/div/div/div/mat-option[4]/span");
+            SearchByVal.click();
         }
         catch (Exception Ex)
         {
