@@ -77,6 +77,7 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
                     case "CIS_NOTIFYMANAGER_044" :
                         IMAdd.CIS_NOTIFYMANAGER_044(driver);
@@ -100,6 +101,7 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
                     case "CIS_NOTIFYMANAGER_045" :
                         IMAdd.CIS_NOTIFYMANAGER_045(driver);
@@ -123,6 +125,7 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
                     case "CIS_NOTIFYMANAGER_046" :
                         IMAdd.CIS_NOTIFYMANAGER_046(driver);
@@ -146,6 +149,7 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
 
                     case "CIS_NOTIFYMANAGER_047" :
@@ -170,9 +174,10 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
-                    case "CIS_NOTIFYMANAGER_049" :
-                        IMAdd.CIS_NOTIFYMANAGER_049(driver);
+                    case "CIS_NOTIFYMANAGER_048" :
+                        IMAdd.CIS_NOTIFYMANAGER_048(driver);
                         Set_.AfterTest(
                                 TCI.Test_case_ID,
                                 TCI.Process,
@@ -193,6 +198,7 @@ ArrayList RetrievedTestCases;
                         );
                         IMAdd.ErrorMessage = null;
                         IMAdd.AdditionalNotes = null;
+                        IMAdd.TestRetry=0;
                         break;
 
                     case "CIS_SEARCH_001" :
