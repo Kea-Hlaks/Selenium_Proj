@@ -825,7 +825,7 @@ public class InformationManagement {
             prop.load(inputStream);
             Client_.setDefaultTimeout(100000);
             Client_.connect(prop.getProperty("HostName"),Integer.parseInt(prop.getProperty("Port")));
-            if (Client_.login(prop.getProperty("User"),prop.getProperty("Pass")))
+            if (Client_.login(prop.getProperty("mathunjwanontokozo@gmail.com"),prop.getProperty("Nontokozo@99")))
             {
                 POP3MessageInfo[] messages = Client_.listMessages();
                 int totalmsgs = messages.length;

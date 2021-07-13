@@ -115,6 +115,7 @@ public class Setup {
         }
     }
 
+
     public static String TakeScreenshot(WebDriver driver,String Function) throws IOException {
     String Path = null;
         try
@@ -138,7 +139,8 @@ public class Setup {
         {
             throw ex;
         }
-        finally {
+        finally
+        {
             return Path;
         }
 

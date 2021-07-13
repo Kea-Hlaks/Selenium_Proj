@@ -15,9 +15,11 @@ import java.util.Properties;
 
 public class RetrieveSaveInfo {
     public ArrayList TestCasesBulk = new ArrayList();
+    public ArrayList UsersBulk = new ArrayList();
 //Declarations
     private boolean Connected = false;
     private TestCasesInfo TCI;
+    private Users USR;
     private String Username;
     private String Password;
     private String Url;
@@ -26,9 +28,11 @@ public class RetrieveSaveInfo {
     private Connection con = null;
     private Statement Stmt;
     private ResultSet Rs;
-    private final String UAMQuery="SELECT * FROM traceabilitymatrix";
+    private final String UAMQuery="SELECT * FROM UAM_TEST";
     private final String IMQuery = "SELECT * FROM INFORMATIONMANAGEMENT";
-    private final String IM_Addendum_Query = "SELECT * FROM IM_ADDENDUM";
+    private final String GetUserQue = "SELECT * FROM USERS_ WHERE username = ";
+    private final String UpdateUser = "UPDATE users_ SET username = '' WHERE username = ''";
+
 
   //
 
@@ -43,8 +47,8 @@ public class RetrieveSaveInfo {
                 Password = prop.get("Password").toString();
                 Url = prop.get("Url").toString();
                 UserAccessManagement UAM = new UserAccessManagement();
-                UAM.IntLink = prop.get("InternalLink").toString();
-                UAM.ExtLink = prop.get("ExternalLink").toString();
+                UAM.IntLink = prop.get("ClientSideInternal").toString();
+                UAM.ExtLink = prop.get("ClientSideExternal").toString();
 
                 Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -134,7 +138,7 @@ public class RetrieveSaveInfo {
         }
     }
 
-    public ArrayList GetIMAddTestCases() throws SQLException, IOException, ClassNotFoundException {
+    public ArrayList GetTestCases(String Query) throws SQLException, IOException, ClassNotFoundException {
         try
         {
             if (PropertiesOpen())
@@ -146,7 +150,7 @@ public class RetrieveSaveInfo {
                 Class.forName("oracle.jdbc.driver.OracleDriver");
                 con = DriverManager.getConnection(Url,Username,Password);
                 Stmt = con.createStatement();
-                Rs = Stmt.executeQuery(IM_Addendum_Query);
+                Rs = Stmt.executeQuery(Query);
                 while(Rs.next())
                 {
                     TCI = new TestCasesInfo();
@@ -186,6 +190,7 @@ public class RetrieveSaveInfo {
             return TestCasesBulk;
         }
     }
+
     public boolean PropertiesOpen() throws IOException {
         boolean open = false;
         try
@@ -203,5 +208,98 @@ public class RetrieveSaveInfo {
             return open;
         }
     }
+
+    public ArrayList GetUser() throws SQLException, ClassNotFoundException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IOException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+        try
+        {
+            if (PropertiesOpen())
+            {
+
+                Username = prop.get("Username").toString();
+                Password = prop.get("Password").toString();
+                Url = prop.get("Url").toString();
+                UserAccessManagement UAM = new UserAccessManagement();
+                UAM.IntLink = prop.get("ClientSideInternal").toString();
+                UAM.ExtLink = prop.get("ClientSideExternal").toString();
+
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+
+                con = DriverManager.getConnection(Url,Username,Password);
+                Stmt = con.createStatement();
+                //Rs = Stmt.executeQuery("SELECT * FROM USERS_ WHERE username = '"+Email+"'");
+                Rs = Stmt.executeQuery("SELECT * FROM USERS_");
+
+                while(Rs.next())
+                {
+                    USR = new Users();
+
+                    USR.setEmail(Rs.getString("USERNAME"));
+                    USR.setPassword(Rs.getString("PASSWORD"));
+
+                    UsersBulk.add(USR);
+                }
+                Connected = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            con.close();
+        }
+
+        if (UsersBulk.isEmpty())
+        {
+            return null;
+        }
+        else {
+            return UsersBulk;
+        }
+
+    }
+@Test
+    public void Test() throws InvalidAlgorithmParameterException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, IOException, BadPaddingException, InvalidKeyException, ClassNotFoundException {
+
+
+
+    }
+
+    public void UpdateUser(String OldEmail,String NewEmail) throws SQLException, ClassNotFoundException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IOException, BadPaddingException, IllegalBlockSizeException, InvalidAlgorithmParameterException {
+        try
+        {
+            if (PropertiesOpen())
+            {
+
+                Username = prop.get("Username").toString();
+                Password = prop.get("Password").toString();
+                Url = prop.get("Url").toString();
+                UserAccessManagement UAM = new UserAccessManagement();
+                UAM.IntLink = prop.get("InternalLink").toString();
+                UAM.ExtLink = prop.get("ExternalLink").toString();
+
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+
+                con = DriverManager.getConnection(Url,Username,Password);
+                Stmt = con.createStatement();
+                Rs = Stmt.executeQuery("UPDATE users_ SET username ="+"'"+NewEmail+"'"+ " WHERE username = "+ "'"+ OldEmail +"'");
+
+
+                Connected = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            con.close();
+        }
+
+
+    }
+
 
 }
